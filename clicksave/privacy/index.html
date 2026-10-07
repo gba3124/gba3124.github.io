@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Privacy Policy — ClickSave</title>
-<meta name="description" content="ClickSave does not collect, store, transmit, or sell any personal data. Every request it makes goes to the image you chose to save.">
+<meta name="description" content="ClickSave does not collect, store, or sell any personal data. Apart from a feedback message you choose to send, every request it makes goes to the image you chose to save.">
 <style>
   :root{
     --ink:#17191d; --ink-2:#4b5563; --ink-3:#6b7280;
@@ -73,12 +73,14 @@
 </header>
 
 <h1>Privacy Policy</h1>
-<p class="lede">ClickSave does not collect, store, transmit, or sell any personal data.</p>
-<p class="updated">Last updated: 21 July 2026</p>
+<p class="lede">ClickSave does not collect, store, or sell any personal data.</p>
+<p class="updated">Last updated: 8 October 2026</p>
 
-<p>There are no analytics, no tracking, no accounts, and no servers of our own.</p>
+<p>There are no analytics, no tracking and no accounts. The one thing ClickSave
+ever sends to us is a feedback message &mdash; and only when you write one and
+press <strong>Send</strong>.</p>
 
-<p>Everything ClickSave does happens <strong>locally in your browser</strong>. It
+<p>Everything else ClickSave does happens <strong>locally in your browser</strong>. It
 finds images on the page you are looking at, and when you ask for one, it
 downloads that image to your computer. Nothing about you, your browsing, or the
 pages you visit is sent anywhere.</p>
@@ -98,8 +100,8 @@ ships inside the extension &mdash; that list is read from local files, never
 fetched.</p>
 
 <h2>Network requests</h2>
-<p>ClickSave makes exactly two kinds of outbound request, both to <strong>the image
-you chose to save</strong>, and never to any server belonging to us:</p>
+<p>Apart from the feedback form (below), ClickSave makes exactly two kinds of
+outbound request, both to <strong>the image you chose to save</strong>:</p>
 <ul>
   <li>A <code>HEAD</code> request to check whether a higher-resolution version of
   the image exists, so you get the original rather than a thumbnail.</li>
@@ -113,8 +115,8 @@ you chose to save</strong>, and never to any server belonging to us:</p>
   origin &mdash; that is the only header it adds, and it identifies the site, not
   you.</p>
 </div>
-<p>There are no other network destinations in the extension. Styles,
-translations and the site-rules list all come from files bundled in the
+<p>The feedback form is the only other network destination in the extension.
+Styles, translations and the site-rules list all come from files bundled in the
 package.</p>
 
 <h2>Permissions</h2>
@@ -139,18 +141,32 @@ package.</p>
 </ul>
 
 <h2>Feedback</h2>
-<p>The popup has a feedback link. It opens <strong>your own mail client</strong>
-with a blank message addressed to us (a <code>mailto:</code> link) &mdash; the
-extension does not send anything itself, and nothing is transmitted unless you
-choose to write and send that email. If you do, your mail provider handles it
-like any other message you send.</p>
+<p>The popup has a feedback form. Nothing is sent until you press
+<strong>Send</strong>. Then it posts, to
+<code>clicksave-feedback.gba3124.workers.dev</code>:</p>
+<ul>
+  <li>the message you wrote;</li>
+  <li>the email address, <strong>only if you typed one</strong> &mdash; it is
+  optional, and used for nothing but replying to you;</li>
+  <li>the extension&rsquo;s version number and interface language;</li>
+  <li>your browser&rsquo;s user-agent string (browser and OS version), which every
+  web request carries.</li>
+</ul>
+<p>That address is a small relay we run on Cloudflare Workers. It forwards the
+message as an email to the developer through Resend (an email-sending service)
+and keeps no copy of it; it reads your IP address only to limit how many
+messages one address can send per minute. Cloudflare and Resend handle the
+message as our service providers, and the email then sits in the
+developer&rsquo;s inbox. To have a message deleted, write to the address under
+Contact.</p>
 
 <h2>Data use</h2>
-<p>For the Chrome Web Store&rsquo;s data-use declarations, ClickSave declares that it
-does <strong>not</strong> collect or use any of the listed user-data categories,
-and it meets all three certifications: no sale of data to third parties, no use
-for purposes unrelated to the single purpose, and no use to determine
-creditworthiness or for lending.</p>
+<p>For the Chrome Web Store&rsquo;s data-use declarations, ClickSave declares
+<strong>Personally identifiable information</strong> &mdash; the optional email
+address in the feedback form &mdash; and no other category. It meets all three
+certifications: no sale of data to third parties, no use for purposes unrelated
+to the single purpose, and no use to determine creditworthiness or for
+lending.</p>
 
 <h2>Changes</h2>
 <p>If this policy ever changes, the revision date above changes with it. Any
