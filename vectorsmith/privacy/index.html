@@ -79,15 +79,16 @@
 
 <h1>Privacy Policy</h1>
 <p class="lede">Vectorsmith does not collect, store, transmit, or sell any personal data.</p>
-<p class="updated">Last updated: 21 July 2026</p>
+<p class="updated">Last updated: 9 October 2026</p>
 
 <p>There are no analytics, no tracking, no accounts, and no remote servers.</p>
 
 <p>Everything Vectorsmith does happens <strong>locally in your browser</strong>.
-Tracing runs entirely in-page: the image you pick is read into a canvas,
-converted to SVG by the bundled engine, and handed back to you as a download or
-a clipboard copy. No image, no page content, and no derived data ever leaves
-your device.</p>
+Tracing runs entirely on your device: the image you pick is read into a canvas,
+converted to SVG by the bundled engine in a background worker inside the
+extension's own hidden frame (so the page you are on stays responsive), and
+handed back to you as a download or a clipboard copy. No image, no page
+content, and no derived data ever leaves your device.</p>
 
 <div class="callout">
   <p>There is no network request of any kind in the tracing path. The extension
