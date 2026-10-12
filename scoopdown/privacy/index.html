@@ -69,7 +69,7 @@
 
 <h1>Privacy Policy</h1>
 <p class="lede"><strong>Scoopdown</strong> does not collect, store, transmit, or sell any personal data.</p>
-<p class="updated">Last updated: 2026-10-12.</p>
+<p class="updated">Last updated: 2026-10-12 (version 1.1.0).</p>
 
 <p>It has no analytics, no tracking, no accounts and no servers. Everything it
 does happens in your browser, and what it makes (Markdown, CSV, text) goes only
@@ -77,40 +77,23 @@ to your clipboard or your Downloads folder.</p>
 
 <h2>What runs where</h2>
 <ul>
-  <li><strong>On every web page</strong>, a small script waits for the pointer to rest on a
-  table, so the table button can appear there. Until then it only checks
-  whether the element under the pointer is a table, and remembers the element
-  you right-click so "this table" and "this link" know what you meant. It
-  sends nothing anywhere.</li>
-  <li><strong>When you use Scoopdown</strong> (the toolbar button, a shortcut, a right-click
-  item or the table button), it reads that page, the table, your selection or
-  the video's captions, builds the result in your browser, and keeps nothing
-  afterward.</li>
-  <li><strong>Tabs → one AI context</strong> reads the content of the tabs you tick, in your
-  browser, to combine them into one paste.</li>
+  <li><strong>Only when you use Scoopdown</strong> (the toolbar button, a shortcut or a right-click item) does it read a page: that page, its tables, your selection or the video's captions. It builds the result in your browser and keeps nothing afterward. Until you ask, Scoopdown runs nothing on the pages you visit.</li>
+  <li><strong>The table tag is off unless you turn it on.</strong> Turned on, a small script runs on every web page so the tag can appear when the pointer rests on a table. Until then it only checks whether the element under the pointer is a table, and remembers the element you right-click so "this table" knows what you meant. It sends nothing anywhere. Turning it off removes the script and hands the permission back.</li>
+  <li><strong>Tabs → one AI context</strong> reads the content of the tabs you tick, in your browser, to combine them into one paste. It reads other tabs only on sites you have allowed.</li>
 </ul>
-
 <h2>Permissions</h2>
+<p>Granted at install (Chrome shows no warning for any of them):</p>
 <ul>
-  <li><code>activeTab</code>, <code>scripting</code>: run the grab on the page you are on when you ask for
-  it (including pages opened before Scoopdown was installed).</li>
-  <li>Content script on <code>http://*/*</code> and <code>https://*/*</code>: the table button and the
-  right-click items above. It has to be on the page before you point at a
-  table, and a table can be on any site.</li>
-  <li><code>contextMenus</code>: adds "Copy page / selection / link / this table" to the
-  right-click menu.</li>
-  <li><code>tabs</code>: reads the titles and addresses of your open tabs for the Tabs list,
-  and finds the page the panel should read.</li>
-  <li><code>clipboardWrite</code>: puts what you asked for on your clipboard. A shortcut, a
-  right-click item or the table button copies on your behalf, sometimes
-  seconds after your last click on the page, and the browser only lets an
-  extension write the clipboard then with this permission. Scoopdown never
-  reads your clipboard.</li>
-  <li><code>storage</code>: remembers your settings (synced by your browser to your own
-  account), the panel's position, the catalog number of your last copy, and a
-  counter for a one-time review request.</li>
+  <li><code>activeTab</code>, <code>scripting</code>: run the grab on the page you are on, at the moment you ask for it (the toolbar button, a shortcut or a right-click item).</li>
+  <li><code>contextMenus</code>: adds "Copy page / selection / link / this table" to the right-click menu.</li>
+  <li><code>storage</code>: remembers your settings (synced by your browser to your own account), the panel's position, the catalog number of your last copy, and a counter for a one-time review request.</li>
 </ul>
-
+<p>Asked for only when you turn a feature on, and removable at any time:</p>
+<ul>
+  <li>Access to <code>http://*/*</code> and <code>https://*/*</code>: the table tag on every site. Turning the tag off gives it back. Tabs → one AI context asks for the sites of the tabs you tick, and only those.</li>
+  <li><code>tabs</code>: the titles and addresses of your open tabs, for the Tabs list. Asked the first time you open Tabs.</li>
+  <li><code>clipboardWrite</code>: lets the copy shortcut put the result on your clipboard without a click on the page. Without it the shortcut shows a Copy button. Scoopdown never reads your clipboard.</li>
+</ul>
 <h2>Network activity</h2>
 <p>Scoopdown sends nothing to the developer or anyone else. Getting a transcript
 opens the site's own transcript panel (YouTube) or loads the video's own
