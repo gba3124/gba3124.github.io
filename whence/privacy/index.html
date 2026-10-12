@@ -69,60 +69,69 @@
 
 <h1>Privacy Policy</h1>
 <p class="lede"><strong>Whence</strong> does not collect, store, transmit, or sell any personal data.</p>
-<p class="updated">Last updated: 2026-10-12.</p>
-
-<p>It has no analytics, no tracking, and no servers of its own. It makes no
-network requests of its own. Nothing is ever sent off your device.</p>
-
+<p class="updated">Last updated: 2026-10-12 (version 1.1.0: Whence runs only on sites you allow).</p>
+<p>It has
+no analytics, no tracking, and no servers of its own. It makes no network
+requests of its own. Nothing is ever sent off your device.</p>
 <h2>What it reads, and when</h2>
 <p>Whence answers "where did this value on the page come from?". To do that it
 looks at the responses the page you are on fetched for itself (<code>fetch</code>,
 <code>XMLHttpRequest</code>, JSONP, WebSocket and Server-Sent Events messages).</p>
 <ul>
+  <li><strong>Whence runs only on sites you allow.</strong> It is installed with no access to
+any website. The first time you click its toolbar icon on a site, it asks to
+be allowed on that one site (for example <code>https://example.com</code>; Chrome
+confirms). Only then does it run on that site's pages; every other site gets
+nothing from Whence. Each allowed site is one exact address: its subdomains,
+and frames embedded from other sites, are not included. You can see and
+remove allowed sites on Whence's "Allowed sites" page (or in
+<code>chrome://extensions</code>); removing one stops Whence on that site at once and
+discards what it recorded there.</li>
   <li><strong>Only after you start it on a tab.</strong> Clicking the toolbar icon or using one
-  of its shortcuts starts recording on that tab; before that, nothing is kept.
-  The tab keeps recording, across reloads, until you close it. Which tabs you
-  started is kept by Whence itself (by tab id, in Chrome's session storage for
-  the extension, cleared with the browser session), not by the page: a page
-  can't turn recording on in a tab you didn't start, and a tab it opens or a
-  duplicate of a started tab records nothing. In a tab you did start, the tab is
-  the boundary, not the site: a page you go on to there can ask to be recorded
-  from its first request, as a reload would be.</li>
+of its shortcuts starts recording on that tab; before that, nothing is kept.
+The tab keeps recording, across reloads, until you close it. Which tabs you
+started is kept by Whence itself (by tab id, in Chrome's session storage for
+the extension, cleared with the browser session), not by the page: a page
+can't turn recording on in a tab you didn't start, and a tab it opens or a
+duplicate of a started tab records nothing. In a tab you did start, the tab is
+the boundary, not the site: a page you go on to there can ask to be recorded
+from its first request, as a reload would be.</li>
   <li><strong>Only in that tab's memory.</strong> Text responses (never images, video or
-  downloads), capped at 500 requests / 24 MB plus 1,000 stream messages / 6 MB,
-  discarded when the tab navigates away or closes. Never written to disk, never
-  synced, never transmitted.</li>
+downloads), capped at 500 requests / 24 MB plus 1,000 stream messages / 6 MB,
+discarded when the tab navigates away or closes. Never written to disk, never
+synced, never transmitted.</li>
   <li><strong>Not readable by the page.</strong> The recording is reachable only by Whence's own
-  interface over a private channel; scripts on the page (including ads and
-  analytics) cannot read it.</li>
+interface over a private channel; scripts on the page (including ads and
+analytics) cannot read it.</li>
   <li><strong>For one purpose:</strong> matching a value you click, or a component you capture,
-  back to the response it came from.</li>
+back to the response it came from.</li>
 </ul>
 <p><strong>Capture for AI</strong> reads the HTML and computed styles of the component you click
 and, when started from the toolbar or a shortcut, takes a screenshot of the
 visible tab cropped to that component. The result goes to your clipboard or a
 file you download. It is not uploaded anywhere.</p>
-
 <h2>Permissions</h2>
+<p>Installing Whence asks for no access to any website, so Chrome shows no
+permission warning.</p>
 <ul>
-  <li><code>activeTab</code> — act on the tab you invoked Whence on (toolbar or shortcut),
-  including the Capture for AI screenshot (<code>captureVisibleTab</code>).</li>
-  <li><code>scripting</code> — on a tab that was open before Whence was installed or updated,
-  show the Whence panel with its "reload this tab" button, and leave that tab a
-  hint before reloading it so it records from its first request. Used only on
-  the tab you invoked Whence on.</li>
+  <li><code>activeTab</code> — act on the tab you invoked Whence on (toolbar or shortcut):
+show its panel there, including the one-time "Allow on this site" ask, and
+take the Capture for AI screenshot (<code>captureVisibleTab</code>).</li>
+  <li><code>scripting</code> — run Whence's recorder on the sites you allowed (registered for
+those sites only, from the start of each page load, because it must be in
+place before a page sends its first request); show the panel on the tab you
+invoked Whence on; and leave that tab a hint before reloading it so it
+records from its first request.</li>
   <li><code>storage</code> — remember your theme, language, the panel position and a copy
-  counter for a one-time review prompt (on your device; theme and language sync
-  with your Chrome profile), and, for the browser session only, which tabs you
-  started Whence on.</li>
+counter for a one-time review prompt (on your device; theme and language sync
+with your Chrome profile), and, for the browser session only, which tabs you
+started Whence on.</li>
+  <li><strong>Optional site access</strong> (<code>http://*/*</code>, <code>https://*/*</code>, declared as optional)
+— never granted at install. Whence requests one site at a time, only when you
+click "Allow on &lt;site&gt;" in its panel, and Chrome asks you to confirm.</li>
 </ul>
-<p>Whence's content scripts are declared on all <code>http(s)</code> pages because the
-recorder must be in place before a page sends its first request; until you
-start Whence on a tab it only passes requests through.</p>
-
 <h2>Contact</h2>
 <p>Questions: <a href="mailto:gba3124@gmail.com">gba3124@gmail.com</a></p>
-
 </div>
 </body>
 </html>
