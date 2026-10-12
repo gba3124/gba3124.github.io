@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Privacy Policy — 文字算盤 WordKit</title>
-<meta name="description" content="WordKit counts Chinese text and estimates your fee entirely in your browser. No network requests, no tracking.">
+<meta name="description" content="WordKit does not collect, transmit, or sell any personal data.">
 <style>
   :root{
     --ink:#17191d; --ink-2:#4b5563; --ink-3:#6b7280;
-    --rule:#e5e8ec; --navy:#b45309; --gold:#d97706;
+    --rule:#e5e8ec; --navy:#2546a8; --gold:#2546a8;
     --bg:#fff; --panel:#f8f9fb;
   }
   *{box-sizing:border-box}
@@ -16,7 +16,7 @@
   body{
     margin:0; background:var(--bg); color:var(--ink);
     font:17px/1.65 'Helvetica Neue',Helvetica,Arial,system-ui,sans-serif;
-    -webkit-font-smoothing:antialiased;
+    -webkit-font-smoothing:antialiased; overflow-wrap:break-word;
   }
   .wrap{max-width:680px; margin:0 auto; padding:72px 24px 96px}
   header{display:flex; align-items:center; gap:16px; margin-bottom:44px}
@@ -34,6 +34,7 @@
     color:var(--ink-3); margin:44px 0 14px; padding-bottom:9px;
     border-bottom:1px solid var(--rule);
   }
+  h3{font-size:17px; line-height:1.4; margin:32px 0 10px}
   p{margin:0 0 16px}
   ul{margin:0 0 16px; padding-left:0; list-style:none}
   li{margin:0 0 14px; padding-left:20px; position:relative}
@@ -41,22 +42,16 @@
     content:""; position:absolute; left:2px; top:.62em;
     width:6px; height:6px; border-radius:50%; background:var(--navy);
   }
+  li ul{margin:10px 0}
+  li li{margin-bottom:8px}
   code{
     font:14px/1 ui-monospace,SFMono-Regular,Menlo,monospace;
     background:var(--panel); border:1px solid var(--rule);
     border-radius:5px; padding:2px 6px;
+    -webkit-box-decoration-break:clone; box-decoration-break:clone;
   }
-  .callout{
-    background:var(--panel); border:1px solid var(--rule); border-radius:12px;
-    padding:22px 24px; margin:0 0 16px;
-  }
-  .callout p:last-child{margin-bottom:0}
   a{color:var(--navy); text-underline-offset:3px}
   a:hover{color:var(--gold)}
-  footer{
-    margin-top:56px; padding-top:22px; border-top:1px solid var(--rule);
-    font-size:14px; color:var(--ink-3);
-  }
   @media (max-width:520px){
     .wrap{padding:44px 20px 64px}
     h1{font-size:26px}
@@ -68,78 +63,126 @@
 <div class="wrap">
 
 <header>
-  <img class="mark" src="data:image/png;base64,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" alt="">
-  <div class="brand">文字算盤 WordKit<small>Chrome extension</small></div>
+  <img class="mark" src="data:image/png;base64,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" alt="">
+  <div class="brand"><span lang="zh-Hant">文字算盤</span> WordKit<small>Chrome extension</small></div>
 </header>
 
 <h1>Privacy Policy</h1>
-<p class="lede">WordKit does not collect, store, transmit, or sell any personal data.</p>
-<p class="updated">Last updated: 21 July 2026</p>
+<p class="lede"><strong>WordKit does not collect, transmit, or sell any personal data.</strong></p>
+<p class="updated">Last updated: 2026-10-12.</p>
 
-<p>There are no analytics, no tracking, no accounts, and no servers.</p>
+<p>It has no analytics, no tracking, no accounts, and no servers.</p>
 
-<p>Everything WordKit does happens <strong>locally in your browser</strong>.
-Counting, fee calculation, width and punctuation fixing, and PDF reflow are pure
-text transforms that run in the page &mdash; nothing is uploaded, and there is no
-network request anywhere in the extension.</p>
+<p>Everything WordKit does happens <strong>locally in your browser</strong>. Counting, fee
+calculation, punctuation fixing and PDF reflow are pure text transforms that
+run on your device. There is no network request anywhere in the extension.</p>
 
 <h2>Your text</h2>
-<p>Text reaches WordKit two ways, and neither leaves your device:</p>
+<p>Text reaches WordKit three ways, and none of them leaves your device:</p>
 <ul>
-  <li><strong>You paste it</strong> into the panel&rsquo;s text box.</li>
-  <li><strong>You select it on a page.</strong> While the panel is open, WordKit
-  watches the selection so it can show the count and fee as you select &mdash; it
-  does not wait for you to press a button. That text is handed to the panel,
-  which is part of the same extension running in the same browser, and nowhere
-  else. Selections are ignored while the panel is closed, and anything over
-  200,000 characters is skipped.</li>
+  <li><strong>You paste or type it</strong> into the panel's text box.</li>
+  <li><strong>You select it on a page and open the panel</strong> (toolbar button or
+  ⌥⇧W / Alt+Shift+W). The selection you had is brought into the panel, and
+  while the panel is open, new selections in that tab follow into it. If the
+  panel already holds text you wrote, a selection never replaces it: the
+  panel offers to swap it in or add it at the end. A selection inside an
+  editor that sits in a frame of the same site (TinyMCE, the WordPress classic
+  editor) is read the same way. A selection inside a frame from another site
+  can only be read where Chrome has already given WordKit access to that site
+  (the every-site option below); otherwise the panel says so and shows how to
+  copy and paste instead.</li>
+  <li><strong>You select it on the page where you opened the panel</strong> (or on any
+  page, if you switched on "show on every site", below). A small badge next
+  to the selection shows its count and fee. The badge reads the selection
+  inside the page to count it; the text is not stored or sent anywhere. The
+  badge and the follow-along ignore selections over 200,000 characters;
+  opening the panel brings in a selection of any size.</li>
 </ul>
-<div class="callout">
-  <p>WordKit keeps no history. Nothing you count is written to storage.</p>
-</div>
+
+<p>Each tab has its own panel text. It is kept in <code>chrome.storage.session</code>,
+together with its undo history, so that closing the panel, or moving to
+another page in the same tab, loses neither; closing the tab drops it.
+Session storage lives in memory only: it is never written to disk or synced,
+and it is cleared when you quit the browser. The <span lang="zh-Hant">清除</span> / Clear button empties
+the text at once (and <span lang="zh-Hant">復原</span> / undo can bring it back while the panel is open).
+A text over 500,000 characters is not kept when the panel closes; the panel
+warns you while it holds one. Session storage holds about 10 MB for all tabs
+together: if it fills up, the text of the least recently used tabs is removed
+first; the panel that made room tells you how many, and a tab whose text was
+removed says so when you open its panel.</p>
+
+<p>An extension update clears session storage. So that an update does not lose
+your text, the panel also hands it to a small hidden page of WordKit inside
+the same tab, which holds it in memory only and gives it to the panel of the
+new version. That copy goes when the tab navigates or closes. The web page
+can see that a hidden WordKit frame is there, but it cannot read it, and
+copies of it a page might add hold nothing.</p>
+
+<p>WordKit's pages inside web pages (the panel and that hidden page) are loaded
+from addresses that change every browser session: a site cannot load them by
+itself, or probe for them to find out whether WordKit is installed. A page on
+which you open the panel can see that it is there.</p>
+
+<p>WordKit keeps no history of what you counted.</p>
 
 <h2>Permissions</h2>
 <ul>
-  <li><strong><code>activeTab</code></strong> &mdash; reads the page <em>only when
-  you invoke WordKit</em> (toolbar button or keyboard shortcut), so it can see
-  the text you select.</li>
-  <li><strong><code>scripting</code></strong> &mdash; injects the panel into that
-  tab when you open it.</li>
-  <li><strong><code>storage</code></strong> &mdash; remembers your own settings.
-  <code>chrome.storage.sync</code> holds preferences (charge unit, currency,
-  rate, theme, and which width, punctuation and reflow fixes to apply);
-  <code>chrome.storage.local</code> holds the panel&rsquo;s on-screen position and a
-  counter behind the &ldquo;leave a review&rdquo; prompt. The developer has no access to
-  either.</li>
+  <li><strong><code>activeTab</code></strong> — lets WordKit read the page <strong>only when you invoke it</strong>
+  (toolbar button or keyboard shortcut), so it can bring in your selection and
+  show the panel there.</li>
+  <li><strong><code>scripting</code></strong> — injects the panel into that tab when you open it, and
+  reads a selection from the tab's frames when it is inside an embedded
+  editor.</li>
+  <li><strong><code>storage</code></strong> —
+    <ul>
+      <li><code>chrome.storage.sync</code> holds your settings so they follow your Chrome
+      profile: the fee basis, rate, unit and currency, the last three rate
+      combinations you used (numbers only, no text), the interface language,
+      the theme, and which punctuation and reflow fixes to apply.</li>
+      <li><code>chrome.storage.local</code> holds the panel's on-screen position, the number
+      printed on your quote slips (No. 000012: how many quotes you have copied),
+      and a counter behind the one-time "leave a review" prompt.</li>
+      <li><code>chrome.storage.session</code> holds each tab's panel text and its undo
+      history, as described above.</li>
+    </ul>
+    The developer has no access to any of these.</li>
 </ul>
-<p>WordKit requests <strong>no host permissions</strong> and declares no content
-script. The panel is injected under <code>activeTab</code>, which Chrome grants
-only at the moment you click &mdash; so the extension has no standing access to any
-site you visit, and does nothing at all on pages where you have not opened it.</p>
+
+<h3>Optional: show the badge on every site</h3>
+<p>Off by default. Only if you switch on <strong>"<span lang="zh-Hant">在所有網站顯示</span> / On every site"</strong> in
+the panel does WordKit ask Chrome for access to all sites (<code>&lt;all_urls&gt;</code>), so
+the badge can appear as you select text anywhere without clicking the toolbar
+first. Chrome shows its own permission prompt; nothing changes if you decline.
+Switching it off removes the script from every site and gives the permission
+back; removing the permission in Chrome's extension settings does the same.
+Even with it on, the badge only counts what you select, in the page, and sends
+nothing anywhere.</p>
+
+<p>Without that option WordKit has no standing access to any site: it does
+nothing on a page until you open it there.</p>
 
 <h2>Network</h2>
-<p>There is <strong>no network request</strong> in WordKit. Its translations and
-other resources are read from files inside the extension package with
+<p>There is <strong>no network request</strong> in WordKit. Its translations and other
+resources are read from files inside the extension package with
 <code>chrome.runtime.getURL()</code>, which never touches the network.</p>
-<p>The only external address anywhere in the extension is the Chrome Web Store
-review page, opened only if you click the &ldquo;leave a review&rdquo; link yourself.</p>
 
-<h2>Data use</h2>
-<p>For the Chrome Web Store&rsquo;s data-use declarations, WordKit declares that it
-does <strong>not</strong> collect or use any of the listed user-data categories,
-and it meets all three certifications: no sale of data to third parties, no use
-for purposes unrelated to the single purpose, and no use to determine
-creditworthiness or for lending.</p>
+<p>The only external address anywhere in the extension is the Chrome Web Store
+review page, opened only if you click the "leave a review" link yourself.</p>
+
+<h2>Data use declarations</h2>
+<p>For the Chrome Web Store's data-use section, WordKit declares that it does
+<strong>not</strong> collect or use any of the listed user-data categories, and it meets all
+three certifications: no sale of data to third parties, no use for purposes
+unrelated to the single purpose, and no use to determine creditworthiness or
+for lending.</p>
 
 <h2>Changes</h2>
 <p>If this policy ever changes, the revision date above changes with it. Any
-change that affects what the extension does with your data will ship alongside
-the extension update that introduces it.</p>
+change affecting what the extension does with your data ships alongside the
+extension update that introduces it.</p>
 
 <h2>Contact</h2>
-<p>Questions or reports: <a href="mailto:gba3124@gmail.com">gba3124@gmail.com</a></p>
-
-<footer>文字算盤 WordKit &mdash; a local Chinese word counter and fee calculator for Chrome.</footer>
+<p>Questions or reports: <strong><a href="mailto:gba3124@gmail.com">gba3124@gmail.com</a></strong></p>
 
 </div>
 </body>
