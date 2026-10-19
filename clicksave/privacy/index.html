@@ -74,7 +74,7 @@
 
 <h1>Privacy Policy</h1>
 <p class="lede">ClickSave does not collect, store, or sell any personal data.</p>
-<p class="updated">Last updated: 8 October 2026</p>
+<p class="updated">Last updated: 20 October 2026</p>
 
 <p>There are no analytics, no tracking and no accounts. The one thing ClickSave
 ever sends to us is a feedback message &mdash; and only when you write one and
@@ -93,27 +93,38 @@ click-to-activate tool, <strong>ClickSave&rsquo;s content script loads on every 
 you visit</strong>. We would rather state that plainly than bury it.</p>
 
 <p>What that script does is narrow: it watches pointer movement, works out which
-image is under the cursor, and draws a button. It does not read page text, form
-fields, passwords, or cookies, and it sends nothing anywhere. On pages where it
+image is under the cursor, and draws a button. To find that image&rsquo;s full-size
+file it reads what the page says about that one image: its other sizes, the
+link around it, or the page&rsquo;s own data naming the original. It does not read
+form fields, passwords, or cookies, and it sends nothing anywhere. On pages where it
 would be in the way, it disables itself using a bundled list of site rules that
 ships inside the extension &mdash; that list is read from local files, never
 fetched.</p>
 
 <h2>Network requests</h2>
-<p>Apart from the feedback form (below), ClickSave makes exactly two kinds of
-outbound request, both to <strong>the image you chose to save</strong>:</p>
+<p>Apart from the feedback form (below), ClickSave sends requests only for
+<strong>the image you chose to save</strong>:</p>
 <ul>
   <li>A <code>HEAD</code> request to check whether a higher-resolution version of
   the image exists, so you get the original rather than a thumbnail.</li>
   <li>A <code>GET</code> request to download the image bytes, for saving, batching
   into a ZIP, or converting between PNG / JPG / WebP.</li>
+  <li>On five sites whose thumbnails do not show where the original is
+  (Instagram, Facebook, OK.ru, Flickr and DuckDuckGo), a <code>GET</code> of that
+  image&rsquo;s own page on the same site (on Flickr, its public photo-sizes API; on
+  DuckDuckGo, the image results you are looking at). ClickSave reads the
+  original&rsquo;s address out of the response and keeps nothing else.</li>
 </ul>
 <div class="callout">
-  <p>Both are sent with <code>credentials: 'omit'</code>, so your cookies and
-  session for that site are not attached. If a site blocks hotlinking, ClickSave
-  retries once with a <code>Referer</code> header set to that site&rsquo;s own
-  origin &mdash; that is the only header it adds, and it identifies the site, not
-  you.</p>
+  <p>All of them are sent with <code>credentials: 'omit'</code>, so your cookies and
+  session for that site are not attached. Each names what it expects back (an
+  <code>Accept</code> header: an image, or a web page). Pixiv&rsquo;s and Weibo&rsquo;s
+  image servers refuse any request that does not name their own site as the
+  <code>Referer</code>, so on ClickSave&rsquo;s own requests to those two
+  (<code>i.pximg.net</code>, <code>sinaimg.cn</code>) it sets <code>Referer</code> to
+  <code>https://www.pixiv.net/</code> or <code>https://weibo.com/</code>. Those are
+  the only headers it adds. They identify the site, not you, and the pages you
+  visit and their own requests are never changed.</p>
 </div>
 <p>The feedback form is the only other network destination in the extension.
 Styles, translations and the site-rules list all come from files bundled in the
@@ -127,6 +138,11 @@ package.</p>
   background worker needs to fetch the image bytes from whatever origin hosts
   them. <code>activeTab</code> does not extend to background fetches, so this is
   the only way to read cross-origin image data.</li>
+  <li><strong><code>declarativeNetRequestWithHostAccess</code></strong> &mdash; set
+  that <code>Referer</code> on ClickSave&rsquo;s own requests to Pixiv&rsquo;s and
+  Weibo&rsquo;s image servers. The rule matches only requests that ClickSave&rsquo;s
+  background worker makes; it never applies to the pages you visit, and it
+  cannot block or read anything.</li>
   <li><strong><code>downloads</code></strong> &mdash; save the image to your normal
   downloads folder. ClickSave cannot read your download history with this; it
   only writes.</li>
