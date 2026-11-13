@@ -70,9 +70,9 @@
 
 <h1>Privacy Policy</h1>
 <p class="lede"><strong>Bezlo</strong> does not collect, store, transmit, or sell any personal data.</p>
-<p class="updated">Last updated: 2026-10-27 (version 1.0.0). Chrome/Edge Manifest V3.</p>
+<p class="updated">Last updated: 2026-11-13 (version 1.0.6). Chrome/Edge Manifest V3.</p>
 
-<p>There is no account, no analytics, no telemetry and no crash reporting. It has no server and receives no data. Everything the extension shows and captures happens in your own browser, on your own machine. The one network connection it makes is to a relay you configure yourself for Live device; if you never open Live device, there is no such connection.</p>
+<p>There is no account, no analytics, no telemetry and no crash reporting. It has no server and receives no data. Everything the extension shows and captures happens in your own browser, on your own machine. Besides the pages you test, the extension talks to one place: the Bezlo Relay helper on your own computer, if you have installed it, and that traffic never leaves your machine.</p>
 
 <h2>Short version</h2>
 <ul>
@@ -80,7 +80,7 @@
   <li><strong>No telemetry, no analytics, no crash reporting.</strong> We have no server and receive no data.</li>
   <li><strong>No ads, no tracking, no sale of data.</strong></li>
   <li>Everything the extension shows and captures happens in your own browser, on your own machine.</li>
-  <li>The one network connection it makes is to a <strong>relay you configure yourself</strong> for Live device (loopback by default, <code>127.0.0.1:7333</code>). If you never open Live device, there is no such connection.</li>
+  <li>Besides the pages you test, the extension talks to one place: <strong>the Bezlo Relay helper on your own computer</strong> (<code>127.0.0.1:7333</code>), if you have installed it. That traffic never leaves your machine.</li>
 </ul>
 
 <h2>What the extension stores (and where)</h2>
@@ -105,7 +105,7 @@
 </ul>
 
 <h2>The permissions, in plain language</h2>
-<p>The manifest asks for exactly five things. Here is what each one is for.</p>
+<p>The manifest asks for exactly six things. Here is what each one is for.</p>
 
 <h3><code>debugger</code></h3>
 <p>This is the engine of the product, and it deserves a plain explanation. To make a page behave as if it were on a phone, the extension uses Chrome's own DevTools emulation layer: the same machinery behind DevTools' device toolbar. The only way an extension can reach that layer is <code>chrome.debugger</code>, which is why the permission is there. While a device is emulated, Chrome itself shows a bar saying the browser is being debugged; that bar is Chrome's, not ours, and pressing <strong>Cancel</strong> on it ends the session. The debugger attaches only after you click the toolbar button or a control inside the light table, only to the tab (or the device) you picked, and detaches when you close the frame, press Stop, or reload the page. It is not left attached in the background.</p>
@@ -119,14 +119,18 @@
 <h3><code>scripting</code></h3>
 <p>Used once per activation to inject the framed light table's overlay host into the tab you clicked. No other tab is touched.</p>
 
+<h3><code>declarativeNetRequestWithHostAccess</code></h3>
+<p>One session rule on the tab showing the phone view: it sets the <code>Sec-Fetch-Dest</code> request header to <code>document</code> for the sites open in it, because some sites refuse a page requested as an iframe. It is removed when the view closes. No request is blocked, redirected or read.</p>
+
 <h3><code>storage</code></h3>
 <p>The list above, on your device only.</p>
 
 <h2>Network connections</h2>
-<p>Two kinds exist, and neither talks to us.</p>
+<p>Three kinds exist, and none of them talks to us.</p>
 <ul>
   <li><strong>The page under test loads exactly as it would in a browser.</strong> The device is a real page load: its requests go to the site you chose. That is the point of a simulator, and it is the same traffic the tab would make anyway.</li>
-  <li><strong>Live device (optional) connects to a relay you run.</strong> The default endpoint is <code>ws://127.0.0.1:7333/ws</code> on your own machine; before connecting, the extension probes <code>http://127.0.0.1:7333/health</code>. You can point it at another host (your own VM, or a <code>wss://</code> endpoint behind TLS you control). The connection carries the rendered frames of the page you chose to test, and your tap/scroll/key input back to that relay. We host no relay and receive nothing. If you never open Live device, this connection never happens.</li>
+  <li><strong>The helper on your own computer (optional).</strong> When the phone view opens, the extension asks <code>http://127.0.0.1:7333/health</code> whether the Bezlo Relay helper is running, so it can offer Real iOS Safari. That request stays on your machine and says nothing about the page. When you switch to Real iOS Safari, the extension connects to <code>ws://127.0.0.1:7333/ws</code>: the connection carries the address you chose to test, the rendered frames coming back, and your taps, scrolling and typing. In the developer settings you can point it at another host you control (your own VM, or a <code>wss://</code> endpoint behind TLS). We host no relay and receive nothing.</li>
+  <li><strong>The helper download is a link.</strong> "Download the helper" fetches a file from this project's releases on GitHub when you press it, and at no other time. GitHub sees that download as it sees any other.</li>
 </ul>
 
 <h2>What we receive</h2>
@@ -144,7 +148,7 @@
 <p>The extension is a developer tool, is not directed at children, and collects no data from anyone.</p>
 
 <h2>Changes</h2>
-<p>If a future version changes how data is handled, this page is updated before that version ships, and the "last updated" date changes. The current version is <code>1.0.0</code>.</p>
+<p>If a future version changes how data is handled, this page is updated before that version ships, and the "last updated" date changes. The current version is <code>1.0.6</code>.</p>
 
 <h2>Contact</h2>
 <p>Owen (gba3124): open an issue on the project's public page, or use the support link on the Chrome Web Store listing.</p>
